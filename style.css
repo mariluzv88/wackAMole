@@ -22,7 +22,7 @@ body{
     align-items: flex-end;
     
     
-    border: solid  black;
+    background-color: black;
     height: 800px;
     width: 800px;
 }
@@ -30,7 +30,7 @@ body{
     display: flex;
      flex-wrap: wrap;
     justify-content: center;
-    
+    position: relative;
 }
 .row1{
     display: flex;
@@ -51,7 +51,26 @@ body{
     border: solid green;
 }
 .tunnel{
+    background-image: url("https://themodelesstraveled.files.wordpress.com/2015/03/floo-powder.jpeg");
+    background-size: 90% 100%;
+    z-index: 100px;
     border: solid  magenta;
     height: 160px;
     width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.voldemort{
+    display: none;
+    
+    height: 90px;
+    width: 90px;
+}
+.harry{
+      display: block;
+    
+      height: 90px;
+      width: 90px;
 }

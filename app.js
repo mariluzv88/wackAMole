@@ -1,8 +1,38 @@
 // variable for current tile
+let curentTile
+let isHidden = true
 // variable for decoy tile
+let decoyTile
 // variable score
+let score = 0
 // variable loss false
+youLost = false
+let game = document.querySelector('.gameBoard')
+let voldi = document.querySelector(".voldemort")
 // window onload function
+window.onload = () => {
+    gameInIt()
+}
+
+gameInIt = () => {
+    
+   for(i = 0; i<=11;i++ ){
+    let tunnel = document.querySelectorAll('.tunnel')
+       tunnel.id = i.toString 
+    }
+    setInterval(unhide,1000) 
+}
+const randomTunnel = ()=>{
+     let num = Math.floor(Math.random()* 11)+1
+     return num.toString()
+}  
+
+
+const unhide = ()=>{
+    
+   randomTunnel().append(voldi)
+}
+
     // game init function
         // set grid for loop < num of tiles
         // call mole divs from dom
