@@ -55,3 +55,10 @@
     // else decoy update game over
     // loss true
 
+
+    // ----------------------stretch goals-------------------------
+    // multilple rounds / increased speed double points
+    // pop up menu for game start / gameover/ new round/do you want to continue
+    // 2 player high score counter
+    // sound on wack /game over
+    // keyframe on wack /gameover
