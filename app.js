@@ -1,9 +1,6 @@
 // variable for current tile
-let curentTile
-let isHidden = true
-// variable for decoy tile
-let decoyTile
-// variable score
+let harryTile;
+let voldiTile;
 let score = 0
 // variable loss false
 youLost = false
@@ -14,6 +11,15 @@ window.onload = () => {
     gameInIt()
 }
 
+// game init function
+    // set grid for loop < num of tiles
+    // call mole divs from dom
+    // event listener click is true select
+    // call game board from dom append child
+
+// set interval || settimeout  mole 1 millisec
+// set interval || settimeout  decoy 2 millisec
+// 
 gameInIt = () => {
     
    for(i = 0; i<=11;i++ ){
@@ -22,44 +28,35 @@ gameInIt = () => {
     }
     setInterval(unhide,1000) 
 }
-const randomTunnel = ()=>{
-     let num = Math.floor(Math.random()* 11)+1
-     return num.toString()
-}  
-
-
-const unhide = ()=>{
-    
-   randomTunnel().append(voldi)
-}
-
-    // game init function
-        // set grid for loop < num of tiles
-        // call mole divs from dom
-        // event listener click is true select
-        // call game board from dom append child
-    
-    // set interval || settimeout  mole 1 millisec
-    // set interval || settimeout  decoy 2 millisec
-// 
-
 // randon tile function
       
 
     // math.random * num of tiles
     // return as string for class id
 
+const randomTunnel = ()=>{
+     let num = Math.floor(Math.random()* 11)+1
+     return num.toString()
+}       
 
+
+
+
+
+const unhide = ()=>{
+    
+  
+}   
 // mole location function
     //  if condition gameover return
 
     // clear previous moles if condition innerHMTL 
-    // create element img for mole
-    // src link
+     //  if voldemort isclicked harry display none
+    // score ++
 
     // variable random num function
     // if conditional for mole/decoy occupying the same tile/num return
-    // tile location call dom idnum
+   
     // tile location append mole
 // 
 
@@ -68,14 +65,11 @@ const unhide = ()=>{
 
     // if condition innerHTMl
 
-    // create image in dom
-    // src link
+    //  if harry isclicked voldemort display none
+    // score ++
 
     // variable random num function
-     // if conditional for mole/decoy occupying the same tile/num return
-    // tile location call dom idnum
-    // tile location append decoy
-// 
+  
 
 // select function
     //  if condition gameover return
