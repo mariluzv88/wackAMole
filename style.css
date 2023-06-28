@@ -1,0 +1,57 @@
+body{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+}
+.mainContainer{
+    border: solid  white;
+    height: 95vmin;
+    width: 95vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.gameBoard{
+    display: flex;
+    align-items: flex-end;
+    
+    
+    border: solid  black;
+    height: 800px;
+    width: 800px;
+}
+.rowContainer{
+    display: flex;
+     flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.row1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid green;
+}
+.row2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid green;
+}
+.row3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid green;
+}
+.tunnel{
+    border: solid  magenta;
+    height: 160px;
+    width: 160px;
+}
