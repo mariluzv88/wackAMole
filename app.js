@@ -1,52 +1,89 @@
 // variable for current tile
+
 let harryTile;
 let voldiTile;
 let score = 0
 // variable loss false
 youLost = false
 let game = document.querySelector('.gameBoard')
-let voldi = document.querySelector(".voldemort")
+let voldi = document.querySelector('voldi')
+let harri = document.querySelector('harri')
+let tunnels = document.querySelectorAll('.tunnel')
+let ron = document.querySelector('ron')
+let her = document.querySelector('her')
 // window onload function
 window.onload = () => {
-    gameInIt()
+    randomTunnel()
+    cycleTunnel()
+    
+    
 }
 
 // game init function
-    // set grid for loop < num of tiles
-    // call mole divs from dom
-    // event listener click is true select
-    // call game board from dom append child
+
 
 // set interval || settimeout  mole 1 millisec
 // set interval || settimeout  decoy 2 millisec
 // 
-gameInIt = () => {
+// gameInIt = () => {
     
-   for(i = 0; i<=11;i++ ){
-    let tunnel = document.querySelectorAll('.tunnel')
-       tunnel.id = i.toString 
-    }
-    setInterval(unhide,1000) 
-}
+
 // randon tile function
       
 
     // math.random * num of tiles
     // return as string for class id
 
+   
 const randomTunnel = ()=>{
-     let num = Math.floor(Math.random()* 11)+1
-     return num.toString()
-}       
-
-
-
-
-
-const unhide = ()=>{
+    clearTunnel()
+     let runnels = tunnels[Math.floor(Math.random()* 11)]
+     let num = Math.floor(Math.random()* 11)
+     console.log(runnels)
+     console.log( Math.floor(Math.random()* 11))
+            if(num > 5){
+        runnels.classList.add('voldi')
+     }else if(num == 0 || num == 1){
+        runnels.classList.add('harri')
+      
+     }else if(num == 2 || num == 3){
+        
+        runnels.classList.add('her')
+      
+     }else if (num == 4 || num == 5){
+        runnels.classList.add('ron')
+     } 
+     
+}
+const clearTunnel = ()=>{
+   tunnels.forEach(tunnel =>{
+    tunnel.classList.remove('voldi')
+   })
+   tunnels.forEach(tunnel =>{
+    tunnel.classList.remove('harri')
+   })
+   tunnels.forEach(tunnel =>{
+    tunnel.classList.remove('her')
+   })
+   tunnels.forEach(tunnel =>{
+    tunnel.classList.remove('ron')
+   })
     
-  
-}   
+
+    
+}
+
+
+const cycleTunnel = ()=>{
+    setInterval(randomTunnel,1000)
+   
+}
+
+ 
+
+
+
+ 
 // mole location function
     //  if condition gameover return
 

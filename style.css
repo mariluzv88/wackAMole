@@ -9,6 +9,9 @@ body{
     height: 100px;
 }
 .mainContainer{
+    color: white;
+    font-family: fantasy;
+    font-size: 50px;
     border: solid  white;
     height: 95vmin;
     width: 95vmin;
@@ -16,12 +19,17 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url("https://e0.pxfuel.com/wallpapers/90/904/desktop-wallpaper-hogwarts-houses-harry-potter-pattern.jpg");
+    
+    background-size: 100% 100%;
 }
 .gameBoard{
     display: flex;
     align-items: flex-end;
     
-    
+   background-image: url("https://images.ctfassets.net/usf1vwtuqyxm/i4QKIxSm4gsUg2sQSMuKk/bc8ad057cb504817e89783ac1ae341eb/TheBurrow_PM_B2C4M1_FlooPowderAtTheBurrow_Moment.jpg?fm=jpg&q=70&w=2560");
+   background-size: 100% 100%;
+   background-position: ;
     background-color: black;
     height: 800px;
     width: 800px;
@@ -36,25 +44,25 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid green;
+    /* border: solid green; */
 }
 .row2{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid green;
+    /* border: solid green; */
 }
 .row3{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid green;
+    /* border: solid green; */
 }
 .tunnel{
-    background-image: url("https://themodelesstraveled.files.wordpress.com/2015/03/floo-powder.jpeg");
+    /* background-image: url("https://themodelesstraveled.files.wordpress.com/2015/03/floo-powder.jpeg"); */
     background-size: 90% 100%;
     z-index: 100px;
-    border: solid  magenta;
+    border: solid  lime;
     height: 160px;
     width: 160px;
     display: flex;
@@ -62,15 +70,31 @@ body{
     align-items: center;
    
 }
-.voldemort{
-    display: none;
+.tunnel.voldi{
     
-    height: 90px;
-    width: 90px;
+    background-image: url("https://media3.giphy.com/media/LLxwPAjfpLak8/giphy.gif");
+    height: 160px;
+    width: 160px;
 }
-.harry{
-      display: block;
-    
-      height: 90px;
-      width: 90px;
+.tunnel.harri{
+      
+    background-image: url("https://media.tenor.com/T90erSIZ41sAAAAC/harry-potter-cute.gif");
+      height: 160px;
+      width: 160px;
+      
 }
+.tunnel.ron{
+      
+    background-image: url("https://media1.popsugar-assets.com/files/thumbor/xN2pgN5J_T7sH_ZzroHBuxu1ah4/fit-in/728xorig/filters:format_auto-!!-:strip_icc-!!-/2020/03/09/749/n/1922283/76b4f797688961ff_giphy-1/i/Shade-Throwing-Ron.gif");
+      height: 160px;
+      width: 160px;
+}
+
+.tunnel.her{
+      
+    background-image: url("https://media1.giphy.com/media/13cfAjuF9oNBu4NL5J/giphy.gif");
+      height: 160px;
+      width: 160px;
+}
+
+
