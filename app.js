@@ -14,18 +14,40 @@ let ron = document.querySelector('ron')
 let her = document.querySelector('her')
 let scores = document.querySelector('.score')
 let cursor = document.querySelector('.wand')
-window.addEventListener("mousemove",(flick) => {
-    // console.log(flick)
-    cursor.style.top = flick.pageY + "px"
-    cursor.style.left = flick.pageX + "px"
-})
+let row = document.querySelector('.rowContainer')
+let start = document.querySelector('.startGame') 
+// let gameOver = document.querySelector('gameOver')
+// window.addEventListener("mousemove",(flick) => {
+//     // console.log(flick)
+//     cursor.style.top = flick.pageY + "px"
+//     cursor.style.left = flick.pageX + "px"
+// })
 
 // window onload function
-window.onload = () => {
-    randomTunnel()
-    cycleTunnel()
+window.onload = ()=>{
+    window.addEventListener("mousemove",(flick) => {
+        // console.log(flick)
+        cursor.style.top = flick.pageY + "px"
+        cursor.style.left = flick.pageX + "px"
+    })
     
+    // alert(`Start Game`)
+   
+    start.style.display = "block"
+    over = document.querySelector('.gameOver')
+    over.style.display = "none"
 }
+// window.onload = () => {
+    // const begin = () =>{
+    //  randomTunnel()
+    //  cycleTunnel()
+    // }
+    // begin()
+//     randomTunnel()
+//     cycleTunnel()
+    
+// }
+// console.log(startGame)
 
 // game.addEventListener("click",(selectWizard) =>{
 //     score.innerText = ++score
@@ -47,6 +69,7 @@ window.onload = () => {
 
    
 const randomTunnel = ()=>{
+   
     clearTunnel()
      let runnels = tunnels[Math.floor(Math.random()* 11)]
      let num = Math.floor(Math.random()* 11)
@@ -63,13 +86,14 @@ const randomTunnel = ()=>{
         runnels.addEventListener('click', crucio)
     }else if(num == 0 || num == 1){
         runnels.classList.add('harri')
-      
+        runnels.addEventListener('click', lose)
      }else if(num == 2 || num == 3){
         
         runnels.classList.add('her')
-      
+        runnels.addEventListener('click', lose)
      }else if (num == 4 || num == 5){
         runnels.classList.add('ron')
+        runnels.addEventListener('click', lose)
      } else{
         return
      }
@@ -79,6 +103,7 @@ const randomTunnel = ()=>{
    console.log()
      
 }
+
 const clearTunnel = ()=>{
    tunnels.forEach(tunnel =>{
     tunnel.classList.remove('barti')
@@ -98,91 +123,59 @@ const clearTunnel = ()=>{
    tunnels.forEach(tunnel =>{
     tunnel.classList.remove('ron')
    })
+   
     
 
     
 }
+
 
 
 const cycleTunnel = ()=>{
     setInterval(randomTunnel,1000)
    
 }
+const begin = () =>{
+    randomTunnel()
+    cycleTunnel()
+   }
+const keepGoing = () =>{
+   
+    randomTunnel()
+    cycleTunnel()
+   }
+   
 
  function crucio(e){
     score +=10
-    scores.textContent = score
+    scores.textContent =(`Score: ${score}`)
     console.log(e)
-    // charset
-    // : 
-    // "UTF-8"
+   
  }
-
-//  tunnels.forEach(tunnel => tunnel.addEventListener('click', crucio))
-
-
-
-
-//    if(wizard === 'barti'){
-
-//        score++
-//    }
-
-
-// console.log(score)
-
-// const selectWizard = (e)=>{
-//     if(e.target === tunnels ){
-//         game.addEventListener("click",(selectWizard) =>{
-//             score.innerText = ++score
-//              console.log(selectWizard.target)
-//         })  
-//     }
-// }
-// const addPoints =()=>{
-//     barti.addEventListener("click",function(){
-//         score += 10
-//         console.log(score)
-
-//     })
-// }
-// const selectWizard = ()=>{
+ function lose(e){
+     scores.textContent =(` Player 1 Score:${score}`)
+     row.innerHTML = alert(`Game Over`)
+      over = document.querySelector('.gameOver')
+     over.style.display = "block"
+     start.style.display = "none"
+     if(lose){
+        return
+    }
     
-//     tunnels.forEach(tunnel=>){
-//         if(tunnel === barti){
-
-//         }
-//     }
+     
     
     
-// }  
-// console.log(score)
-// selectWizard()
-
-// }
-// let wizard = document.querySelector('tunnel.barti')
-// wizard.addEventListener("mouseover", function(){
+    console.log(e)
+   
+ }
   
-//   score+=10
-//   console.log(score)
-// })
-       
-// let score = 0;
-// console.log(score)
+//  function (e){
+    
+//    let lose = document.querySelector('.gameBoard')
+//    lose.classList.toggle('gameOver')
+// //    clearInterval(randomTunnel,11000)
+//  }
 
-// const addPoints =()=>{
-//   score += 10
-// }
-
-// let box = document.querySelector('.deatheater')
-
-// box.addEventListener("mouseover", function(){
-//   box.style.backgroundColor="red"
-//   score+=10
-//   console.log(score)
-// })
-
- 
 // mole location function
     //  if condition gameover return
 

@@ -4,7 +4,7 @@
 
 body{
     overflow: hidden;
-    background-color: red;
+    background-color: black;
     display: flex;
     justify-content: center;
 }
@@ -14,6 +14,7 @@ body{
     height: 100px;
 }
 .mainContainer{
+    
     color: white;
     font-family: fantasy;
     font-size: 50px;
@@ -38,6 +39,29 @@ body{
     background-color: black;
     height: 800px;
     width: 800px;
+}
+.gameOver{
+    height: 150px;
+    width: 800px;
+  
+    margin-left: 750px;
+    overflow: hidden;
+  display: none;
+}
+.startGame{
+    height: 150px;
+    width: 800px;
+  
+   margin-left: 750px;
+    overflow: hidden;
+  display: none;
+}
+.reset{
+    background-color: black;
+    color: lime;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
 }
 .rowContainer{
     display: flex;
