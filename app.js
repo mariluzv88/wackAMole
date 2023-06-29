@@ -1,16 +1,25 @@
 // variable for current tile
-
+let score = 0
 let harryTile;
 let voldiTile;
-let score = 0
 // variable loss false
 youLost = false
 let game = document.querySelector('.gameBoard')
-let voldi = document.querySelector('voldi')
+let barti = document.querySelector('barti')
+let bella = document.querySelector('bella')
+let peta = document.querySelector('peta')
 let harri = document.querySelector('harri')
 let tunnels = document.querySelectorAll('.tunnel')
 let ron = document.querySelector('ron')
 let her = document.querySelector('her')
+let scores = document.querySelector('score')
+let cursor = document.querySelector('.wand')
+window.addEventListener("mousemove",(flick) => {
+    console.log(flick)
+    cursor.style.top = flick.pageY + "px"
+    cursor.style.left = flick.pageX + "px"
+})
+
 // window onload function
 window.onload = () => {
     randomTunnel()
@@ -39,10 +48,15 @@ const randomTunnel = ()=>{
     clearTunnel()
      let runnels = tunnels[Math.floor(Math.random()* 11)]
      let num = Math.floor(Math.random()* 11)
-     console.log(runnels)
-     console.log( Math.floor(Math.random()* 11))
-            if(num > 5){
-        runnels.classList.add('voldi')
+    //  console.log(runnels)
+    //  console.log( Math.floor(Math.random()* 11))
+            if(num == 5 || num == 6){
+        runnels.classList.add('barti')
+     }else if(num == 7 || num == 8){
+        runnels.classList.add('peta')
+     }else if(num == 9 || num == 10){
+        runnels.classList.add('bella')
+    
      }else if(num == 0 || num == 1){
         runnels.classList.add('harri')
       
@@ -57,7 +71,13 @@ const randomTunnel = ()=>{
 }
 const clearTunnel = ()=>{
    tunnels.forEach(tunnel =>{
-    tunnel.classList.remove('voldi')
+    tunnel.classList.remove('barti')
+   })
+   tunnels.forEach(tunnel =>{
+    tunnel.classList.remove('bella')
+   })
+   tunnels.forEach(tunnel =>{
+    tunnel.classList.remove('peta')
    })
    tunnels.forEach(tunnel =>{
     tunnel.classList.remove('harri')
@@ -80,7 +100,21 @@ const cycleTunnel = ()=>{
 }
 
  
+const selectWizard = ()=>{
+    let wizard = document.getElementsByClassName('voldi')
+        
+           if(wizard == 'voldi')
+               scores.innertext = ++score
+            //    score.innerhtml = (`score = ${score}`)
 
+            
+            
+            console.log(score)
+            selectWizard()
+        
+    
+    
+}
 
 
  
@@ -115,6 +149,7 @@ const cycleTunnel = ()=>{
     // call score from dom innertext score to string updating score
     // else decoy update game over
     // loss true
+   
 
 
     // ----------------------stretch goals-------------------------
