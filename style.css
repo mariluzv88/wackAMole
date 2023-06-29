@@ -121,7 +121,7 @@ body{
     /* pointer-events: none; */
     animation: flick 2s ease-in infinite;
 }
-@keyframes flick{
+@keyframes flick {
     0% {
     height:  300px;
     width:  150px;

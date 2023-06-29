@@ -12,10 +12,10 @@ let harri = document.querySelector('harri')
 let tunnels = document.querySelectorAll('.tunnel')
 let ron = document.querySelector('ron')
 let her = document.querySelector('her')
-let scores = document.querySelector('score')
+let scores = document.querySelector('.score')
 let cursor = document.querySelector('.wand')
 window.addEventListener("mousemove",(flick) => {
-    console.log(flick)
+    // console.log(flick)
     cursor.style.top = flick.pageY + "px"
     cursor.style.left = flick.pageX + "px"
 })
@@ -25,11 +25,13 @@ window.onload = () => {
     randomTunnel()
     cycleTunnel()
     
-    
 }
 
+// game.addEventListener("click",(selectWizard) =>{
+//     score.innerText = ++score
+//      console.log(selectWizard.target)
+// })
 // game init function
-
 
 // set interval || settimeout  mole 1 millisec
 // set interval || settimeout  decoy 2 millisec
@@ -52,12 +54,14 @@ const randomTunnel = ()=>{
     //  console.log( Math.floor(Math.random()* 11))
             if(num == 5 || num == 6){
         runnels.classList.add('barti')
+         runnels.addEventListener('click', crucio)
      }else if(num == 7 || num == 8){
         runnels.classList.add('peta')
+        runnels.addEventListener('click', crucio)
      }else if(num == 9 || num == 10){
         runnels.classList.add('bella')
-    
-     }else if(num == 0 || num == 1){
+        runnels.addEventListener('click', crucio)
+    }else if(num == 0 || num == 1){
         runnels.classList.add('harri')
       
      }else if(num == 2 || num == 3){
@@ -66,7 +70,13 @@ const randomTunnel = ()=>{
       
      }else if (num == 4 || num == 5){
         runnels.classList.add('ron')
-     } 
+     } else{
+        return
+     }
+
+    
+   // game init function
+   console.log()
      
 }
 const clearTunnel = ()=>{
@@ -99,23 +109,78 @@ const cycleTunnel = ()=>{
    
 }
 
- 
-const selectWizard = ()=>{
-    let wizard = document.getElementsByClassName('voldi')
-        
-           if(wizard == 'voldi')
-               scores.innertext = ++score
-            //    score.innerhtml = (`score = ${score}`)
+ function crucio(e){
+    score +=10
+    scores.textContent = score
+    console.log(e)
+    // charset
+    // : 
+    // "UTF-8"
+ }
 
-            
-            
-            console.log(score)
-            selectWizard()
-        
+//  tunnels.forEach(tunnel => tunnel.addEventListener('click', crucio))
+
+
+
+
+//    if(wizard === 'barti'){
+
+//        score++
+//    }
+
+
+// console.log(score)
+
+// const selectWizard = (e)=>{
+//     if(e.target === tunnels ){
+//         game.addEventListener("click",(selectWizard) =>{
+//             score.innerText = ++score
+//              console.log(selectWizard.target)
+//         })  
+//     }
+// }
+// const addPoints =()=>{
+//     barti.addEventListener("click",function(){
+//         score += 10
+//         console.log(score)
+
+//     })
+// }
+// const selectWizard = ()=>{
+    
+//     tunnels.forEach(tunnel=>){
+//         if(tunnel === barti){
+
+//         }
+//     }
     
     
-}
+// }  
+// console.log(score)
+// selectWizard()
 
+// }
+// let wizard = document.querySelector('tunnel.barti')
+// wizard.addEventListener("mouseover", function(){
+  
+//   score+=10
+//   console.log(score)
+// })
+       
+// let score = 0;
+// console.log(score)
+
+// const addPoints =()=>{
+//   score += 10
+// }
+
+// let box = document.querySelector('.deatheater')
+
+// box.addEventListener("mouseover", function(){
+//   box.style.backgroundColor="red"
+//   score+=10
+//   console.log(score)
+// })
 
  
 // mole location function
