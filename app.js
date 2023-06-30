@@ -40,13 +40,16 @@ window.onload = ()=>{
     over.style.display = "none"
 }
 const begin = () =>{
+    const stop = setInterval(randomTunnel,1000)
     randomTunnel()
-    cycleTunnel()
+    // cycleTunnel()
    }
 const keepGoing = () =>{
    youLost = false
-   p1score.innerText = score
-    // randomTunnel()
+   p1score.innerText = (`Player 1 Score: ${score}`)
+   window.onload()
+   
+    randomTunnel()
     // cycleTunnel()
    }
 // window.onload = () => {
@@ -85,34 +88,41 @@ const randomTunnel = ()=>{
     return
    }
     clearTunnel()
+    player2()
+    
      let runnels = tunnels[Math.floor(Math.random()* 11)]
      let num = Math.floor(Math.random()* 11)
     //  console.log(runnels)
      console.log( num)
-            if(num === 7 || num === 6){
+            if(num === 7 || num === 6 ){
+                // youLost = false      
         runnels.classList.add('barti')
-         runnels.addEventListener('click', crucio)
+         runnels.addEventListener('click', crucio, youLost = false )
          
-     }else if( num === 8){
+     }else if( num === 8   ){
+        // youLost = false
         runnels.classList.add('peta')
-        runnels.addEventListener('click', avada)
+        runnels.addEventListener('click', avada, youLost = false )
        
-     }else if(num === 9 || num === 10){
+     }else if(num === 9 || num === 10 ){
+    //    youLost = false
         runnels.classList.add('bella')
-        runnels.addEventListener('click', crucio)
+        runnels.addEventListener('click', crucio,  youLost = false )
        
-    }else if(num === 0 || num === 1){
+    }else if(num === 0 || num === 1   ){
+        youLost = false
         runnels.classList.add('harri')
-        runnels.addEventListener('click', lose)
+        runnels.addEventListener('click', lose,)
        
-     }else if(num === 2 || num === 3){
-        
+     }else if(num === 2 || num === 3 ){
+        youLost = false
         runnels.classList.add('her')
-        runnels.addEventListener('click', lose)
+        runnels.addEventListener('click', lose, )
        
-     }else if (num === 4 || num === 5){
+     }else if (num === 4 || num === 5 ){
+        youLost = false
         runnels.classList.add('ron')
-        runnels.addEventListener('click', lose)
+        runnels.addEventListener('click', lose, )
         
      } 
 
@@ -148,42 +158,50 @@ const clearTunnel = ()=>{
     
 }
 
-
-
-const cycleTunnel = ()=>{
-   
-     let stop = setInterval(randomTunnel,1000)
-    if(youLost ){
-    clearInterval(stop)
-    }
-   
-
-   
-   
+const player2 = () =>{
+    clearInterval(stop, 2000)
+    // alert(`Player 2's turn`)
 }
+
+// const stop = setInterval(randomTunnel,1000)
+// const cycleTunnel = ()=>{
+   
+//     if(youLost ){
+//     clearInterval(stop)
+//     }else{
+//         return
+//     }
+   
+
+   
+   
+// }
 
    
 
  function crucio(e){
-    if(youLost){
-        return
-       }
-    score +=10
-    p1score.textContent =(`Score: ${score}`)
-    // console.log(e)
+    
+            
+            score +=10
+            p1score.textContent =(`Player 1 Score: ${score}`)
+            // console.log(e)
+        
    
  }
  function avada(e){
-    if(youLost){
-        return
-       }
-    score +=30
-    p1score.textContent =(`Score: ${score}`)
-    // console.log(e)
+   
+            
+            score +=30
+            p1score.textContent =(`Player 1 Score: ${score}`)
+            // console.log(e)
+        
    
  }
- function lose(e){
+ const lose = () =>{
     youLost = true
+    
+        clearInterval(stop)
+        
     // cycleTunnel(lose) 
      p1score.textContent =(` Player 1 Score:${score}`)
     //  row.innerHTML = alert(`Game Over`)
@@ -195,9 +213,30 @@ const cycleTunnel = ()=>{
      
     
     
-    console.log(e)
+    
+    
    
  }
+//  function lose(e){
+//     youLost = true
+//     if(youLost ){
+//         clearInterval(stop)
+        
+//     // cycleTunnel(lose) 
+//      p1score.textContent =(` Player 1 Score:${score}`)
+//     //  row.innerHTML = alert(`Game Over`)
+    
+//     start.style.display = "none"
+//      over.style.display = "block"
+    
+    
+     
+    
+    
+//     console.log(e)}
+    
+   
+//  }
 //   console.log(clearInterval(randomTunnel()))
 //  function (e){
     
