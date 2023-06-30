@@ -16,6 +16,8 @@ let scores = document.querySelector('.score')
 let cursor = document.querySelector('.wand')
 let row = document.querySelector('.rowContainer')
 let start = document.querySelector('.startGame') 
+let   over = document.querySelector('.gameOver')
+let p1score = document.querySelector('.p1score')
 // let gameOver = document.querySelector('gameOver')
 // window.addEventListener("mousemove",(flick) => {
 //     // console.log(flick)
@@ -37,6 +39,16 @@ window.onload = ()=>{
     over = document.querySelector('.gameOver')
     over.style.display = "none"
 }
+const begin = () =>{
+    randomTunnel()
+    cycleTunnel()
+   }
+const keepGoing = () =>{
+   youLost = false
+   p1score.innerText = score
+    // randomTunnel()
+    // cycleTunnel()
+   }
 // window.onload = () => {
     // const begin = () =>{
     //  randomTunnel()
@@ -69,35 +81,42 @@ window.onload = ()=>{
 
    
 const randomTunnel = ()=>{
-   
+   if(youLost){
+    return
+   }
     clearTunnel()
      let runnels = tunnels[Math.floor(Math.random()* 11)]
      let num = Math.floor(Math.random()* 11)
     //  console.log(runnels)
-    //  console.log( Math.floor(Math.random()* 11))
-            if(num == 5 || num == 6){
+     console.log( num)
+            if(num === 7 || num === 6){
         runnels.classList.add('barti')
          runnels.addEventListener('click', crucio)
-     }else if(num == 7 || num == 8){
+         
+     }else if( num === 8){
         runnels.classList.add('peta')
-        runnels.addEventListener('click', crucio)
-     }else if(num == 9 || num == 10){
+        runnels.addEventListener('click', avada)
+       
+     }else if(num === 9 || num === 10){
         runnels.classList.add('bella')
         runnels.addEventListener('click', crucio)
-    }else if(num == 0 || num == 1){
+       
+    }else if(num === 0 || num === 1){
         runnels.classList.add('harri')
         runnels.addEventListener('click', lose)
-     }else if(num == 2 || num == 3){
+       
+     }else if(num === 2 || num === 3){
         
         runnels.classList.add('her')
         runnels.addEventListener('click', lose)
-     }else if (num == 4 || num == 5){
+       
+     }else if (num === 4 || num === 5){
         runnels.classList.add('ron')
         runnels.addEventListener('click', lose)
-     } else{
-        return
-     }
+        
+     } 
 
+     
     
    // game init function
    console.log()
@@ -132,35 +151,46 @@ const clearTunnel = ()=>{
 
 
 const cycleTunnel = ()=>{
-    setInterval(randomTunnel,1000)
+   
+     let stop = setInterval(randomTunnel,1000)
+    if(youLost ){
+    clearInterval(stop)
+    }
+   
+
+   
    
 }
-const begin = () =>{
-    randomTunnel()
-    cycleTunnel()
-   }
-const keepGoing = () =>{
-   
-    randomTunnel()
-    cycleTunnel()
-   }
+
    
 
  function crucio(e){
+    if(youLost){
+        return
+       }
     score +=10
-    scores.textContent =(`Score: ${score}`)
-    console.log(e)
+    p1score.textContent =(`Score: ${score}`)
+    // console.log(e)
+   
+ }
+ function avada(e){
+    if(youLost){
+        return
+       }
+    score +=30
+    p1score.textContent =(`Score: ${score}`)
+    // console.log(e)
    
  }
  function lose(e){
-     scores.textContent =(` Player 1 Score:${score}`)
-     row.innerHTML = alert(`Game Over`)
-      over = document.querySelector('.gameOver')
+    youLost = true
+    // cycleTunnel(lose) 
+     p1score.textContent =(` Player 1 Score:${score}`)
+    //  row.innerHTML = alert(`Game Over`)
+    
+    start.style.display = "none"
      over.style.display = "block"
-     start.style.display = "none"
-     if(lose){
-        return
-    }
+    
     
      
     
@@ -168,7 +198,7 @@ const keepGoing = () =>{
     console.log(e)
    
  }
-  
+//   console.log(clearInterval(randomTunnel()))
 //  function (e){
     
 //    let lose = document.querySelector('.gameBoard')
@@ -209,7 +239,9 @@ const keepGoing = () =>{
     // loss true
    
 
-
+// const rounds = () =>{
+//     if
+// }
     // ----------------------stretch goals-------------------------
     // multilple rounds / increased speed double points
     // pop up menu for game start / gameover/ new round/do you want to continue

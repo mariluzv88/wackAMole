@@ -7,32 +7,34 @@ body{
     background-color: black;
     display: flex;
     justify-content: center;
+    background-image: url("https://allears.net/wp-content/uploads/2021/01/battle-of-hogwarts-gif-harry-potter.gif");
+    
+    background-size: 100% 110%;
 }
 .title{
     display: flex;
     justify-content: center;
     height: 100px;
+    /* background-color: rgba(0, 0, 0, 0.718); */
+    color: lime;
 }
 .mainContainer{
-    
+    background-color: rgba(0, 0, 0, 0.884);
     color: white;
     font-family: fantasy;
     font-size: 50px;
-    border: solid  white;
+
     height: 95vmin;
     width: 95vmin;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("https://e0.pxfuel.com/wallpapers/90/904/desktop-wallpaper-hogwarts-houses-harry-potter-pattern.jpg");
-    
-    background-size: 100% 100%;
 }
 .gameBoard{
     display: flex;
     align-items: flex-end;
-    
+    box-shadow: 12px 10px 13px -3px rgb(8, 90, 2),-7px 6px 18px -1px rgb(0, 100, 30),-16px 1px 9px 5px rgb(0, 141, 2);
    background-image: url("https://images.ctfassets.net/usf1vwtuqyxm/i4QKIxSm4gsUg2sQSMuKk/bc8ad057cb504817e89783ac1ae341eb/TheBurrow_PM_B2C4M1_FlooPowderAtTheBurrow_Moment.jpg?fm=jpg&q=70&w=2560");
    background-size: 100% 100%;
    background-position: ;
@@ -42,26 +44,42 @@ body{
 }
 .gameOver{
     height: 150px;
-    width: 800px;
-  
-    margin-left: 750px;
+    width: 100%;
+  background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjVmaXg2aDJidXRsaWVtY2l3NnF5cXAybGw3bTFiMWhhaDB0Y2k5biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Wrd8QwEkxh5Re/giphy.gif");
+   
     overflow: hidden;
   display: none;
+}
+.gameDeatz{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+#p2{
+    margin-right: 250px;
 }
 .startGame{
     height: 150px;
-    width: 800px;
+    width: 100%;
   
-   margin-left: 750px;
+   
     overflow: hidden;
   display: none;
 }
+.p1score, .p2score{
+    /* background-color: rgba(0, 0, 0, 0.413); */
+    color: lime;
+}
+
 .reset{
     background-color: black;
     color: lime;
     border-radius: 50%;
     height: 80px;
     width: 80px;
+    margin-left: 500px;
 }
 .rowContainer{
     display: flex;
@@ -142,10 +160,10 @@ body{
     height: 150px;
     width: 150px;
     z-index: 2;
-    /* pointer-events: none; */
-    animation: flick 2s ease-in infinite;
+    pointer-events: none;
+    /* animation: flick 2s ease-in infinite; */
 }
-@keyframes flick {
+/* @keyframes flick {
     0% {
     height:  300px;
     width:  150px;
@@ -156,7 +174,7 @@ body{
     width: -150px;
     rotate: -10deg;
     }
-}
+} */
 
 
 
