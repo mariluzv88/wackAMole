@@ -86,7 +86,9 @@ const keepGoing = () =>{
 const randomTunnel = ()=>{
    if(youLost){
     return
-   }
+   }else{
+    youLost = false
+   
     clearTunnel()
     player2()
     
@@ -95,19 +97,19 @@ const randomTunnel = ()=>{
     //  console.log(runnels)
      console.log( num)
             if(num === 7 || num === 6 ){
-                // youLost = false      
+                youLost = false      
         runnels.classList.add('barti')
-         runnels.addEventListener('click', crucio, youLost = false )
+         runnels.addEventListener('click', crucio,  )
          
      }else if( num === 8   ){
-        // youLost = false
+        youLost = false
         runnels.classList.add('peta')
-        runnels.addEventListener('click', avada, youLost = false )
+        runnels.addEventListener('click', avada, )
        
      }else if(num === 9 || num === 10 ){
-    //    youLost = false
+       youLost = false
         runnels.classList.add('bella')
-        runnels.addEventListener('click', crucio,  youLost = false )
+        runnels.addEventListener('click', crucio,   )
        
     }else if(num === 0 || num === 1   ){
         youLost = false
@@ -125,13 +127,15 @@ const randomTunnel = ()=>{
         runnels.addEventListener('click', lose, )
         
      } 
+    }
+    getId = runnels.id
+
+}
+
+    
 
      
-    
-   // game init function
-   console.log()
-     
-}
+
 
 const clearTunnel = ()=>{
    tunnels.forEach(tunnel =>{
@@ -184,7 +188,7 @@ const player2 = () =>{
             
             score +=10
             p1score.textContent =(`Player 1 Score: ${score}`)
-            // console.log(e)
+            console.log(e)
         
    
  }
@@ -193,7 +197,7 @@ const player2 = () =>{
             
             score +=30
             p1score.textContent =(`Player 1 Score: ${score}`)
-            // console.log(e)
+            console.log(e)
         
    
  }

@@ -58,7 +58,9 @@ body{
    
     overflow: hidden;
   display: none;
+  
 }
+
 .gameDeatz{
     display: flex;
     background-color: rgba(0, 0, 0, 0.413);
@@ -174,9 +176,9 @@ body{
     width: 150px;
     z-index: 2;
     pointer-events: none;
-    /* animation: flick 2s ease-in infinite; */
+    animation: flick 2s ease-in-out backwards;
 }
-/* @keyframes flick {
+@keyframes flick {
     0% {
     height:  300px;
     width:  150px;
@@ -187,7 +189,12 @@ body{
     width: -150px;
     rotate: -10deg;
     }
-} */
+}
+.time{
+    border: solid white;
+    width: 120px;
+    height: 120px;
+}
 
 
 
