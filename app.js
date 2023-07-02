@@ -40,7 +40,7 @@ window.onload = ()=>{
     over.style.display = "none"
 }
 const begin = () =>{
-    const stop = setInterval(randomTunnel,1000)
+    let move = setInterval(randomTunnel,1000)
     randomTunnel()
     // cycleTunnel()
    }
@@ -114,17 +114,17 @@ const randomTunnel = ()=>{
     }else if(num === 0 || num === 1   ){
         youLost = false
         runnels.classList.add('harri')
-        runnels.addEventListener('click', lose,)
+        runnels.addEventListener('click', leviosahh,)
        
      }else if(num === 2 || num === 3 ){
         youLost = false
         runnels.classList.add('her')
-        runnels.addEventListener('click', lose, )
+        runnels.addEventListener('click', leviosahh, )
        
      }else if (num === 4 || num === 5 ){
         youLost = false
         runnels.classList.add('ron')
-        runnels.addEventListener('click', lose, )
+        runnels.addEventListener('click', leviosahh, )
         
      } 
     }
@@ -134,7 +134,23 @@ const randomTunnel = ()=>{
 
     
 
-     
+function timerSet(){
+    let time = setInterval(timerSet, 1000)
+    countDown.innerHTML = (`:${timer}`)
+    timer-- 
+    if(timer === 0){
+        clearInterval(time)
+    }
+    
+    
+}  
+
+const playState = ()=>{
+    let move = setInterval(gameCondition,1000)
+    if (timer ===  0){
+        clearTimeout(move)
+    }
+}
 
 
 const clearTunnel = ()=>{
@@ -163,7 +179,7 @@ const clearTunnel = ()=>{
 }
 
 const player2 = () =>{
-    clearInterval(stop, 2000)
+    clearInterval(move)
     // alert(`Player 2's turn`)
 }
 
@@ -201,26 +217,18 @@ const player2 = () =>{
         
    
  }
- const lose = () =>{
-    youLost = true
-    
-        clearInterval(stop)
+ const leviosahh = () =>{
+    // youLost = true
+    score -=10
+        // clearInterval(stop)
         
     // cycleTunnel(lose) 
      p1score.textContent =(` Player 1 Score:${score}`)
     //  row.innerHTML = alert(`Game Over`)
     
-    start.style.display = "none"
-     over.style.display = "block"
-    
-    
-     
-    
-    
-    
-    
-   
- }
+    // start.style.display = "none"
+    //  over.style.display = "block"
+}
 //  function lose(e){
 //     youLost = true
 //     if(youLost ){
