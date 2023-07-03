@@ -10,27 +10,47 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class="startMenu">
+            <div class="startGame">
+                <div class="center">
+                    <div class="title">Crucio A Death Eater</div>
+                    <button class="reset" onclick="gameStart()">START</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="gameOver">
+            <div class="title">GAME OVER</div>
+            <button class="reset2" onclick="tryAgain()">TRY AGAIN</button>
+        </div>
+        <div class="p2Wins">
+            <div class="title">PLAYER 2 WINS <img src="https://media.tenor.com/za0E3o53NiQAAAAC/dumbledore-harrypotter.gif" alt="" class="pic2"></div>
+            <button class="reset2" onclick="tryAgain()">TRY AGAIN</button>
+        </div>
+        <div class="p1Wins">
+
+            <div class="title">PLAYER 1 WINS            <img class="pic" src="https://static.wikia.nocookie.net/070517fb-e970-4566-ad36-14deb4d874ce" alt=""></div>
+            <button class="reset2" onclick="tryAgain()">TRY AGAIN</button>
+        </div>
+        <div class="tied">
+           
+            <div class="title">VOLDEMORT WINS<img src="https://media.tenor.com/PMBPrGHqwbcAAAAM/voldemort-dancing.gif" alt="" class="pic2"></div>
+            <button class="reset2" onclick="tryAgain()">TRY AGAIN</button>
+        </div>
+        <div class="cursor">
+
+            <img src="./images/wand.png" alt="" class="wand">
+        </div>
         <!-- main contianer -->
         <div class="mainContainer">
-            <div class="cursor">
-
-                <img src="./images/wand.png" alt="" class="wand">
-            </div>
             
            
-            <div class="title">Crucio A Death Eater</div>
             <!-- score container -->
             <div class="gameDeatz">
                 <div class="p1score"><span> Player 1 Score: </span> </div>
                 <div class="time" ></div>
                 <div class="p2score" ><span>Player 2 Score: </span> </div>
                 
-            </div>
-            <div class="gameOver">
-                <button class="reset" onclick="keepGoing()">TRY AGAIN</button>
-            </div>
-            <div class="startGame">
-                <button class="reset" onclick="gameStart()">START</button>
             </div>
             <!-- gameboard container -->
             <div class="gameBoard">

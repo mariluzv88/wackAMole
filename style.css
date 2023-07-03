@@ -1,64 +1,99 @@
 *{
     cursor: none;
+    margin: 0%;
 }
 
-body{
-    overflow: hidden;
+body{ 
+    background-color: black;*/
+     /* overflow: hidden; */
     background-color: rgba(9, 9, 9, 0.355);
     display: flex;
     justify-content: center;
-    background-image: url("https://orlandoparkstop.com/wp-content/uploads/2020/05/ministry-fireplaces3.jpg");
-    background-size: 100% 100%;
-}
-.title{
-    display: flex;
-    justify-content: center;
-    height: 100px;
-    background-color: rgba(0, 0, 0, 0.718);
-    color: rgb(0, 255, 102);
-}
+    align-items: center;
+    
+    /* background-image: url("https://orlandoparkstop.com/wp-content/uploads/2020/05/ministry-fireplaces3.jpg");
+    background-size: 100% 100%;  */
+} 
 .mainContainer{
-   
-     background-image: url("https://media0.giphy.com/media/zC99Tr1riCeB1vv9ec/giphy.gif?cid=6c09b952f548n968ru31nqqd6u0icwfxc0oke2ra3vihjjun&ep=v1_stickers_related&rid=giphy.gif&ct=s") ;
-     
+    
+    /* background-image: url("https://media0.giphy.com/media/zC99Tr1riCeB1vv9ec/giphy.gif?cid=6c09b952f548n968ru31nqqd6u0icwfxc0oke2ra3vihjjun&ep=v1_stickers_related&rid=giphy.gif&ct=s") ;
     
     background-size: 100% 110%;
-    background-size: 10% 10%;
-    /* background-color: rgba(0, 0, 0, 0.884); */
+    background-size: 10% 10%; */
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0.884);
     color: white;
     font-family: fantasy;
     font-size: 50px;
     border: solid black;
     height: 100%;
-    width: 80%;
+    width: 100%;
     display: flex;
+   
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .gameBoard{
-    
+   
     display: flex;
     align-items: center;
     justify-content: center;
     /* box-shadow: 12px 10px 13px -3px rgb(8, 90, 2),-7px 6px 18px -1px rgb(0, 100, 30),-16px 1px 9px 5px rgb(0, 141, 2); */
     box-shadow: 20px 30px 60px rgb(8, 90, 2);
-   background-image: url("https://images.ctfassets.net/usf1vwtuqyxm/i4QKIxSm4gsUg2sQSMuKk/bc8ad057cb504817e89783ac1ae341eb/TheBurrow_PM_B2C4M1_FlooPowderAtTheBurrow_Moment.jpg?fm=jpg&q=70&w=2560");
-   background-size: 100% 100%;
-   margin-bottom: 200px;
+    background-image: url("https://images.ctfassets.net/usf1vwtuqyxm/i4QKIxSm4gsUg2sQSMuKk/bc8ad057cb504817e89783ac1ae341eb/TheBurrow_PM_B2C4M1_FlooPowderAtTheBurrow_Moment.jpg?fm=jpg&q=70&w=2560");
+    background-size: 100% 100%;
+    margin-bottom: 200px;
     background-color: black;
     height: 800px;
     width: 800px;
     
 }
 .gameOver{
-    height: 150px;
-    width: 100%;
-  background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjVmaXg2aDJidXRsaWVtY2l3NnF5cXAybGw3bTFiMWhhaDB0Y2k5biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Wrd8QwEkxh5Re/giphy.gif");
+    height: 100vmin;
+    width: 100%; 
+    background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjVmaXg2aDJidXRsaWVtY2l3NnF5cXAybGw3bTFiMWhhaDB0Y2k5biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Wrd8QwEkxh5Re/giphy.gif");
+    background-size: 100% 100%;
+    display: none;
+}
+.reset2{
+    font-family: 40px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    margin-left: 46%;
+    margin-bottom: 290px;
+    border: solid rgb(0, 255, 102);
+    border-width: 8px;
+}
+.p1Wins{
+    height: 100vmin;
+    width: 100%; 
+    background-image: url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzNuNDB2bWZ4bW11azZuemQxaG9pbGpqcjlqM2hoaDc4Mjc4Z2Z5ZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/wUrc9zZpRhRrW/200.gif");
+    background-size: 35% 35%;
+    display: none;
+}
+.pic{
+    height: 250px;
+    width: 250px;
+}
+.p2Wins{
+    height: 100vmin;
+    width: 100%; 
+    background-image: url("https://i.gifer.com/4peY.gif");
+    background-size: 100% 100%;
    
-    overflow: hidden;
-  display: none;
-  
+    display: none;
+}
+.tied{
+    height: 100vmin;
+    width: 100%; 
+    background-image: url("https://i.gifer.com/Ps8Z.gif");
+    background-size: 100% 100%;
+    display: none;
+   
 }
 
 .gameDeatz{
@@ -68,31 +103,67 @@ body{
     justify-content: space-between;
     
 }
-#p2{
-    margin-left: 250px;
+
+.title{
+    margin-bottom: 60px;
+    padding-top: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.718);
+    color: rgb(0, 255, 102);
+    font-size: 70px;
+    font-family: 'Franklin Gothic Medium';
+    
 }
 .startGame{
-    height: 150px;
-    width: 100%;
-  
-   
-    overflow: hidden;
-  display: none;
+     height: 100vmin;
+    width: 100vmin; 
+     margin: 0;
+     
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-self: center;
+   background-image: url("https://media0.giphy.com/media/zC99Tr1riCeB1vv9ec/giphy.gif?cid=6c09b952f548n968ru31nqqd6u0icwfxc0oke2ra3vihjjun&ep=v1_stickers_related&rid=giphy.gif&ct=s") ;
+   background-size: 100% 110%;
+   background-size: 10% 10%;
 }
-.p1score, .p2score{
+.p1score {
+    padding-left: 100px;
     background-color: rgba(0, 0, 0, 0.413);
-    width: 200px;
-    color: rgba(245, 245, 245, 0.915);
+    width: 250px;
+    color: rgb(101, 0, 253);
+}
+.p2score{
+    padding-right: 10px;
+    padding-left: 120px;
+    background-color: rgba(0, 0, 0, 0.413);
+    width: 250px;
+    color: rgba(0, 21, 255, 0.915);
+}
+.startMenu{
+    margin-top: 100px;
+    height: 100vmin;
+    width: 100vmin; 
+    background-image: url("https://orlandoparkstop.com/wp-content/uploads/2020/05/ministry-fireplaces3.jpg");
+    background-size: 100% 100%; 
+    align-items: center;
+    justify-content: center;
+   
 }
 
 .reset{
+    
     font-family: 40px;
-    background-color: rgba(251, 109, 0, 0);
+    background-color: rgb(0, 0, 0);
     color: white;
     border-radius: 50%;
     height: 80px;
     width: 80px;
     margin-left: 46%;
+    margin-bottom: 290px;
     border: solid rgb(0, 255, 102);
     border-width: 8px;
 }
@@ -191,9 +262,10 @@ body{
     }
 }
 .time{
-    border: solid white;
-    width: 120px;
-    height: 120px;
+    color: red;
+    /* border: solid white; */
+    width: 80px;
+    height: 80px;
 }
 
 

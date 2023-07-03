@@ -2,9 +2,7 @@ let newRound = false
 let roundOver = false
 let isClicked = false
 let timer ;
-// let score = 0
-let p1Points = 0
-let p2Points = 0
+let score = 0
 let timeUp = false
 let tunnels = document.querySelectorAll('.tunnel')
 let game = document.querySelector('.gameBoard')
@@ -13,7 +11,12 @@ let player1 = document.querySelector('.p1score')
 let player2 = document.querySelector('.p2score')
 let cursor = document.querySelector('.wand')
 let row = document.querySelector('.rowContainer')
-let start = document.querySelector('.startGame') 
+let start = document.querySelector('.startMenu') 
+let over = document.querySelector('.gameOver')
+let p1Win = document.querySelector('.p1Wins')
+let p2Win = document.querySelector('.p2Wins')
+let vWin = document.querySelector('.tied')
+let main = document.querySelector('.mainContainer')
 let countDown = document.querySelector('.time')
 let barti = document.querySelector('barti')
 let bella = document.querySelector('bella')
@@ -30,7 +33,7 @@ window.onload = ()=>{
     })
     
     // alert(`Start Game`)
-   
+   main.style.display = "none"
     start.style.display = "block"
     over = document.querySelector('.gameOver')
     over.style.display = "none"
@@ -39,7 +42,13 @@ window.onload = ()=>{
 
 
 const gameStart = ()=>{
-round1Start()
+    start.style.display = "none"
+    main.style.display = "flex"
+      setTimeout(function(){
+   
+        round1Start()
+     
+    },1000)
 // player1Play()
 
 // setTimeout(function(){
@@ -63,6 +72,24 @@ round1Start()
 //     },90000)
 }
 
+const tryAgain = () =>{
+    window.addEventListener("mousemove",(flick) => {
+        // console.log(flick)
+        cursor.style.top = flick.pageY + "px"
+        cursor.style.left = flick.pageX + "px"
+    })
+    
+    // alert(`Start Game`)
+   main.style.display = "none"
+    start.style.display = "block"
+    
+    over.style.display = "none" 
+    p1Win.style.display = "none" 
+    p2Win.style.display = "none" 
+     vWin.style.display = "none" 
+     score = 0
+
+}
 const round1Start = () =>{
 alert("round 1 is starting!")
 player1Play()
@@ -97,17 +124,19 @@ player1Play()
 
 const player1Play = () =>{
 alert("player 1 GO!")
+
 timer = 30
 player1Turn()
 }
 const player1Turn = ()=>{
     let player1R1 =setInterval(function(){
-        gameConditionP1()
+        player1.innerHTML = (`${score}`)
+        gameCondition()
       },1000)
       let timerSet = setInterval(function(){
-        countDown.innerHTML = (`:${timer}`)
+        countDown.innerHTML = (`: ${timer}`)
         timer-- 
-        if(timer === -1){         
+        if(timer === 0){         
            clearInterval(player1R1)
            clearInterval(timerSet)
            player2Turn()
@@ -124,14 +153,16 @@ const player2Turn = () =>{
 const player2Play = () =>{
     alert("player 2 GO!")
     timer = 30
+    score = 0
     let player2R1 =setInterval(function(){
-        gameConditionP2()
+        player2.innerHTML = (`${score}`)
+        gameCondition()
       },1000)
       let timerSet = setInterval(function(){
        
         countDown.innerHTML = (`:${timer}`)
         timer-- 
-        if(timer === -1){         
+        if(timer === 0){         
            clearInterval(player2R1)
            clearInterval(timerSet)
            round2Start()
@@ -144,11 +175,12 @@ const round2Start = () =>{
     alert("round 2 + speed / -time")
  let player = prompt('Do You Want To continue?')
     if(player === null || player === "" || player ==="no"){
+        main.style.display = "none"
         start.style.display = "none"
          over.style.display = "block"      
         //  clearInterval(player1R1)
         //  clearInterval(player2R2)
-        clearInterval(timerSet) 
+        // clearInterval(timerSet) 
 }else{
    player1Round2()
 }
@@ -156,8 +188,10 @@ const round2Start = () =>{
 const player1Round2 = ()=>{
     alert("player 1 GO!")
     timer = 15
+    score = player1.innerHTML
     let player1R2 =setInterval(function(){
-        gameConditionP1()
+        player1.innerHTML = (`${score}`)
+        gameCondition()
       },500)
     //    setTimeout(function(){
     //   clearInterval(playState)
@@ -169,7 +203,7 @@ const player1Round2 = ()=>{
           
            countDown.innerHTML = (`:${timer}`)
            timer-- 
-           if(timer === -1){         
+           if(timer === 0){         
               clearInterval(player1R2)
               clearInterval(timerSet)
               player2Round2()
@@ -180,8 +214,10 @@ const player1Round2 = ()=>{
 const player2Round2 = ()=>{
     alert("player 2 GO!")
     timer = 15
+    score = player2.innerHTML
     let player2R2 =setInterval(function(){
-        gameConditionP2()
+        player2.innerHTML = (`${score}`)
+        gameCondition()
       },500)
     //    setTimeout(function(){
     //   clearInterval(playState)
@@ -193,7 +229,7 @@ const player2Round2 = ()=>{
           
            countDown.innerHTML = (`:${timer}`)
            timer-- 
-           if(timer === -1){         
+           if(timer === 0){         
               clearInterval(player2R2)
               clearInterval(timerSet)
               winCondition()
@@ -203,18 +239,24 @@ const player2Round2 = ()=>{
 }
 const winCondition = () =>{
     if(player1.innerText  > player2.innerText){
-        alert("player 1 WINS")
+        main.style.display = "none"
+        start.style.display = "none"
+         p1Win.style.display = "block"  
     }else if (player2.innerText > player1.innerText){
-        alert("player 2 WINS")
+        main.style.display = "none"
+        start.style.display = "none"
+         p2Win.style.display = "block"  
     }else{
-        alert("TIED, Voldemort WINS")
+        main.style.display = "none"
+        start.style.display = "none"
+         vWin.style.display = "block"  
     }
 }
 
 // ----------timer stuff--------------
 
 
-const gameConditionP1 = ()=>{
+const gameCondition = ()=>{
     clearTunnel()
     let runnels = tunnels[Math.floor(Math.random()* 11)]
     let num = Math.floor(Math.random()* 11)
@@ -225,77 +267,37 @@ const gameConditionP1 = ()=>{
     if(num === 7 || num === 6 ){
              
         runnels.classList.add('barti')
-        runnels.addEventListener('click', crucioP1,  )
+        runnels.addEventListener('click', crucio,  )
         
     }else if( num === 8   ){
        
        runnels.classList.add('peta')
-       runnels.addEventListener('click', avadaP1, )
+       runnels.addEventListener('click', avada, )
        
     }else if(num === 9 || num === 10 ){
        
         runnels.classList.add('bella')
-        runnels.addEventListener('click', crucioP1,   )
+        runnels.addEventListener('click', crucio,   )
         
     }else if(num === 0 || num === 1   ){
         
         runnels.classList.add('harri')
-        runnels.addEventListener('click', leviosahhP1,)
+        runnels.addEventListener('click', leviosahh,)
         
     }else if(num === 2 || num === 3 ){
        
         runnels.classList.add('her')
-        runnels.addEventListener('click', leviosahhP1, )
+        runnels.addEventListener('click', leviosahh, )
         
     }else if (num === 4 || num === 5 ){
       
         runnels.classList.add('ron')
-        runnels.addEventListener('click', leviosahhP1, )
+        runnels.addEventListener('click', leviosahh, )
         
     } 
     
 }
-const gameConditionP2 = ()=>{
-    clearTunnel()
-    let runnels = tunnels[Math.floor(Math.random()* 11)]
-    let num = Math.floor(Math.random()* 11)
-    
-    
-    //  console.log(runnels)
-    // console.log( num)
-    if(num === 7 || num === 6 ){
-             
-        runnels.classList.add('barti')
-        runnels.addEventListener('click', crucioP2,  )
-        
-    }else if( num === 8   ){
-      
-       runnels.classList.add('peta')
-       runnels.addEventListener('click', avadaP2, )
-       
-    }else if(num === 9 || num === 10 ){
-        
-        runnels.classList.add('bella')
-        runnels.addEventListener('click', crucioP2,   )
-        
-    }else if(num === 0 || num === 1   ){
-       
-        runnels.classList.add('harri')
-        runnels.addEventListener('click', leviosahhP2,)
-        
-    }else if(num === 2 || num === 3 ){
-        
-        runnels.classList.add('her')
-        runnels.addEventListener('click', leviosahhP2, )
-        
-    }else if (num === 4 || num === 5 ){
-        
-        runnels.classList.add('ron')
-        runnels.addEventListener('click', leviosahhP2, )
-        
-    } 
-    
-}
+
 const clearTunnel = ()=>{
     tunnels.forEach(tunnel =>{
         tunnel.classList.remove('barti')
@@ -320,37 +322,19 @@ const clearTunnel = ()=>{
 
 // ------------attack actions------------
 
-function crucioP1 ()  {
-    p1Points+= 10
-    player1.innerText = (`Player 1 Score: ${p1Points}`)
+function crucio ()  {
+    score+= 10
+    // player1.innerText = (`Player 1 Score: ${score}`)
     console.log(e)
 }
-function avadaP1  () {
-    p1Points+= 30
-    player1.innerText = (`Player 1 Score: ${p1Points}`)
+function avada  () {
+    score+= 30
+    // player1.innerText = (`Player 1 Score: ${score}`)
     console.log(e)
 }
-function leviosahhP1  () {
-    p1Points-= 10
-    player1.innerText = (` Player 1 Score:${p1Points}`)
-    //  row.innerHTML = alert(`Game Over`)
-    
-    // start.style.display = "none"
-    //  over.style.display = "block"
-}
-function crucioP2  ()  {
-    p2Points+= 10
-    player2.innerText  = (`Player 2 Score: ${p2Points}`)
-    console.log(e)
-}
-function avadaP2  ()  {
-    p2Points+= 30
-    player2.innerText = (`Player 2 Score: ${p2Points}`)
-    console.log(e)
-}
-function leviosahhP2  () {
-    p2Points-= 10
-    player2.innerText = (` Player 2 Score:${p2Points}`)
+function leviosahh  () {
+    score-= 10
+    // player1.innerText = (` Player 1 Score:${score}`)
     //  row.innerHTML = alert(`Game Over`)
     
     // start.style.display = "none"
