@@ -54,7 +54,10 @@ const tryAgain = () =>{
         // console.log(flick)
         cursor.style.top = flick.pageY + "px"
         cursor.style.left = flick.pageX + "px"
+        
     })
+    player1.textContent = "Player 1 Score:"
+    player2.textContent = "Player 2 Score:"
     
     // alert(`Start Game`)
    main.style.display = "none"
@@ -64,11 +67,12 @@ const tryAgain = () =>{
     p1Win.style.display = "none" 
     p2Win.style.display = "none" 
      vWin.style.display = "none" 
-     score = 0
-     points = 0
+    
 
 }
 const round1Start = () =>{
+    score = 0
+    points = 0
 alert("round 1 is starting!")
 player1Play()
 }
@@ -87,7 +91,7 @@ const player1Turn = ()=>{
       let timerSet = setInterval(function(){
         countDown.innerHTML = (`: ${timer}`)
         timer-- 
-        if(timer === -1){  
+        if(timer === 0){  
                 
            clearInterval(player1R1)
            clearInterval(timerSet)
@@ -114,7 +118,7 @@ const player2Play = () =>{
        
         countDown.innerHTML = (`:${timer}`)
         timer-- 
-        if(timer === -1){         
+        if(timer === 0){         
            clearInterval(player2R1)
            clearInterval(timerSet)
            round2Start()
@@ -155,7 +159,7 @@ const player1Round2 = ()=>{
           
            countDown.innerHTML = (`:${timer}`)
            timer-- 
-           if(timer === -1){         
+           if(timer === 0){         
               clearInterval(player1R2)
               clearInterval(timerSet)
               player2Round2()
@@ -181,7 +185,7 @@ const player2Round2 = ()=>{
           
            countDown.innerHTML = (`:${timer}`)
            timer-- 
-           if(timer === -1){         
+           if(timer === 0){         
               clearInterval(player2R2)
               clearInterval(timerSet)
               winCondition()
@@ -352,44 +356,3 @@ function leviosahhP2  () {
     //  over.style.display = "block"
 }
 
-// const playState = ()=>{
-//     let move = setInterval(gameCondition,1000)
-//     if (timer ===  0){
-//         clearTimeout(move)
-//     }
-// }
-// let playState =setInterval(function(){
-//   gameCondition()
-// },1000)
-//  setTimeout(function(){
-// clearInterval(playState)
-// clearInterval(timerSet)
-// alert("do you want to continue?")
-//  },30000)
-
-//  let timerSet = setInterval(function(){
-//      countDown.innerHTML = (`:${timer}`)
-//      timer-- 
-//      if(timer === -1){         
-//         clearInterval(playState)
-//         clearInterval(timerSet)
-//             }
-
-//  },1000)
-// function timerSet(){
-   
-    // console.log(timer)
-    // console.log(countDown)
-   
-//     if(timer === -1){
-//         clearTimeout(time)
-//     }
-// }
-// let time = setInterval(timerSet, 1000,)
-// function timeStop(){
-    
-    
-//     console.log(timer)
-//     console.log(countDown)
-    
-// }
